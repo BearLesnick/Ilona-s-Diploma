@@ -1,0 +1,31 @@
+﻿@model ProjectWithAuthorization.Models.Component.ComponentDetailsMode
+@{
+    ViewBag.Title = "EditComponent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Component</h2>
+<div class="container">
+    <div class="text-left mt-3 pb-3">
+        <h3 class="float-righ">@Model.ComponentName</h3>
+    </div>
+
+    <form>
+        <div class="form-group text-left">
+            <label for="vendorLink">Vendor link</label>
+            <input type="text" class="form-control mr-sm-2" id="vendorLink" value="@Model.Vendor">
+        </div>
+        <div class="form-group text-left">
+            <label for="criticalityLevel">Criticality level</label>
+            <input type="text" class="form-control mr-sm-2" id="criticalityLevel" value="@Model.CriticalityLevel">
+        </div>
+        <div class="input-group text-left mb-3 ">
+            <input type="text" class="form-control mr-sm-2" id="analogName1">
+            <div class="input-group-append">
+                <button class="btn btn-outline-success" type="button">+</button>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>

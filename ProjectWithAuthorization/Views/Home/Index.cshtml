@@ -1,0 +1,28 @@
+﻿@model List<ProjectWithAuthorization.Models.Project>
+@{
+    ViewBag.Title = "Work space";
+}
+
+
+<div class="container">
+    <div class="text-left mt-3 pb-3">
+        <button type="button" class="btn btn-success float-righ" onclick="location.href='@Url.Action("CreateProject", "Project")'">Create new project</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Creation date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var project in @Model)
+            {
+                <tr class="@project.CriticalityClass @project.Id t-row">
+                    <td>@project.ProjectName</td>
+                    <td>@project.CreationDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

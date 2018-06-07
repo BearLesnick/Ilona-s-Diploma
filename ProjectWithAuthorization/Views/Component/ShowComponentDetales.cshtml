@@ -1,0 +1,39 @@
+﻿@model ProjectWithAuthorization.Models.Component.ComponentDetailsMode
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="text-left mt-3 pb-3">
+        <h3  class="float-righ">@Model.ComponentName</h3>
+        <div>Criticality level: <span class="border border-danger px-4">@Model.CriticalityLevel</span></divpx-4>
+    </div>
+    </div>
+    <h3>Analogs</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Component name</th>
+                <th>Criticality Level</th>
+                <th>Vendor link</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var component in @Model.Analogs)
+            {
+                <tr class="@component.CriticalityClass @component.Id t-row">
+                    <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component")</td>
+                    <td>@component.CriticalityLevel</td>
+                    <td>@component.Vendor</td>
+                    <td><i>@Html.ActionLink("Edit data", "EditComponent", "Component", new { @class = "text-secondary" })</i></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
