@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectWithAuthorization", "ProjectWithAuthorization\ProjectWithAuthorization.csproj", "{7E9E17BB-C39E-4B5A-968B-76CBC6C35F69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcRazorToPdf", "MvcRazorToPdf\MvcRazorToPdf.csproj", "{50E76C53-09C0-4A25-91A7-16C78F50BAE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7E9E17BB-C39E-4B5A-968B-76CBC6C35F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E9E17BB-C39E-4B5A-968B-76CBC6C35F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E9E17BB-C39E-4B5A-968B-76CBC6C35F69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50E76C53-09C0-4A25-91A7-16C78F50BAE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50E76C53-09C0-4A25-91A7-16C78F50BAE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50E76C53-09C0-4A25-91A7-16C78F50BAE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50E76C53-09C0-4A25-91A7-16C78F50BAE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

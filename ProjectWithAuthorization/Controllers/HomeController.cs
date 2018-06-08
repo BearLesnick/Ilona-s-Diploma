@@ -21,15 +21,21 @@ namespace ProjectWithAuthorization.Controllers
             return View(projectsList);
         }
 
+        [HttpGet]
+        public ActionResult GenerateReport(String text)
+        {
+           return RedirectToAction("GenerateReport", "Component",text);//TODO connect to entityModel
+        }
+
         public ActionResult Components()
         {
             List<ComponentListMode> componentsList = new List<ComponentListMode>()
             {
-                new ComponentListMode() { Id = 0, Name = "Some Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-warning"},
-                new ComponentListMode() { Id = 1, Name = "Some Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-danger"},
-                new ComponentListMode() { Id = 2, Name = "Some Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"},
-                new ComponentListMode() { Id = 3, Name = "Some Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"},
-                new ComponentListMode() { Id = 4, Name = "Some Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"}
+                new ComponentListMode() { Id = 0, Name = "First Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-warning"},
+                new ComponentListMode() { Id = 1, Name = "Second Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-danger"},
+                new ComponentListMode() { Id = 2, Name = "Third Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"},
+                new ComponentListMode() { Id = 3, Name = "Fourth Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"},
+                new ComponentListMode() { Id = 4, Name = "Fifth Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"}
             };
 
 

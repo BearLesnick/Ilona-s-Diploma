@@ -1,0 +1,48 @@
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.csprojResolveAssemblyReference.cache
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.csproj.CoreCompileInputs.cache
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\MvcRazorToPdf.dll.config
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\MvcRazorToPdf.dll
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\MvcRazorToPdf.pdb
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\itextsharp.dll
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\System.Web.Helpers.dll
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\System.Web.Mvc.dll
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\System.Web.Razor.dll
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\System.Web.WebPages.dll
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\itextsharp.xml
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\System.Web.Helpers.xml
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\System.Web.Mvc.xml
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\System.Web.Razor.xml
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\System.Web.WebPages.xml
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.csproj.CopyComplete
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.dll
+C:\Users\LesnickBear\Desktop\MvcRazorToPdf-master\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.pdb
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\MvcRazorToPdf.dll.config
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\MvcRazorToPdf.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\MvcRazorToPdf.pdb
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\itextsharp.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\itextsharp.xmlworker.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.Helpers.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.Mvc.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.Razor.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.WebPages.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.WebPages.Razor.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\itextsharp.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.Helpers.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.Mvc.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.Razor.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.WebPages.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.WebPages.Razor.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.csprojResolveAssemblyReference.cache
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.csproj.CoreCompileInputs.cache
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.csproj.CopyComplete
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.pdb
