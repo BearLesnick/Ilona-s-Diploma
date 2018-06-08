@@ -1,14 +1,17 @@
 ﻿@model List<ProjectWithAuthorization.Models.Component.ComponentListMode>
 @{
-    ViewBag.Title = "My workspace";
+    Layout = null;
 }
-<h2 class="mt-2">@ViewBag.Title</h2>
 
-    <div class="container">
-        <div class="text-left mt-3 pb-3">
-            <button type="button" class="btn btn-success float-righ">Load configuration</button>
-            @Html.ActionLink("Generate report", "GenerateReport", new{ componentsList = Model, text = "text"}, new { @class = "btn btn-outline-success navbar-right"})
-            </div>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GenerateReport</title>
+</head>
+<body>
+    <div>
         <table class="table">
             <thead>
                 <tr>
@@ -20,18 +23,16 @@
             </thead>
             <tbody>
                 @foreach (var component in @Model)
-            {
+                {
                     <tr class="@component.CriticalityClass @component.Id t-row">
-                        <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component")</td>
+                        <td>@component.Name</td>
                         <td>@component.CriticalityLevel</td>
                         <td>@component.Vendor</td>
-                        <td><i>@Html.ActionLink("Edit data", "EditComponent", "Component", new { @class = "text-secondary" })</i></td>
+
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-
-
-
- 
+</body>
+</html>
