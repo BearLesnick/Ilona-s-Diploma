@@ -41,8 +41,8 @@ D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.Razor.x
 D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.WebPages.xml
 D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\bin\Debug\System.Web.WebPages.Razor.xml
-D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.csprojResolveAssemblyReference.cache
 D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.csproj.CoreCompileInputs.cache
 D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.csproj.CopyComplete
 D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.dll
 D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.pdb
+D:\KrakenRepo\Diploma\Ilona's Diploma\MvcRazorToPdf\obj\Debug\MvcRazorToPdf.csprojResolveAssemblyReference.cache

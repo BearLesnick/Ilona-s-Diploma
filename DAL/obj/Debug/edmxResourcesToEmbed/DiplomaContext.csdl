@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="diploma_bdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="analogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ComponentId" Type="Int32" />
+    <Property Name="AnalogId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="component" Relationship="Self.AnalogId" FromRole="analogs" ToRole="component" />
+    <NavigationProperty Name="component1" Relationship="Self.ComponentId" FromRole="analogs" ToRole="component" />
+  </EntityType>
+  <EntityType Name="component">
+    <Key>
+      <PropertyRef Name="ComponentId" />
+    </Key>
+    <Property Name="ComponentId" Type="Int32" Nullable="false" />
+    <Property Name="NameAndVersion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VendorLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CtiticalityLevel" Type="Int32" />
+    <NavigationProperty Name="analogs" Relationship="Self.AnalogId" FromRole="component" ToRole="analogs" />
+    <NavigationProperty Name="analogs1" Relationship="Self.ComponentId" FromRole="component" ToRole="analogs" />
+    <NavigationProperty Name="criticality_level" Relationship="Self.CtiticalityLevel" FromRole="component" ToRole="criticality_level" />
+    <NavigationProperty Name="project" Relationship="Self.project_has_component" FromRole="component" ToRole="project" />
+  </EntityType>
+  <EntityType Name="criticality_level">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CriticalityLevel" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="component" Relationship="Self.CtiticalityLevel" FromRole="criticality_level" ToRole="component" />
+  </EntityType>
+  <EntityType Name="project">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="ProjectName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreationDate" Type="DateTime" />
+    <Property Name="AuthorId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="component" Relationship="Self.project_has_component" FromRole="project" ToRole="component" />
+  </EntityType>
+  <Association Name="AnalogId">
+    <End Role="component" Type="Self.component" Multiplicity="1" />
+    <End Role="analogs" Type="Self.analogs" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="component">
+        <PropertyRef Name="ComponentId" />
+      </Principal>
+      <Dependent Role="analogs">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ComponentId">
+    <End Role="component" Type="Self.component" Multiplicity="1" />
+    <End Role="analogs" Type="Self.analogs" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="component">
+        <PropertyRef Name="ComponentId" />
+      </Principal>
+      <Dependent Role="analogs">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CtiticalityLevel">
+    <End Role="criticality_level" Type="Self.criticality_level" Multiplicity="0..1" />
+    <End Role="component" Type="Self.component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="criticality_level">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="component">
+        <PropertyRef Name="CtiticalityLevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="project_has_component">
+    <End Role="component" Type="Self.component" Multiplicity="*" />
+    <End Role="project" Type="Self.project" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="diploma_bdEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="analogs" EntityType="Self.analogs" />
+    <EntitySet Name="component" EntityType="Self.component" />
+    <EntitySet Name="criticality_level" EntityType="Self.criticality_level" />
+    <EntitySet Name="project" EntityType="Self.project" />
+    <AssociationSet Name="AnalogId" Association="Self.AnalogId">
+      <End Role="component" EntitySet="component" />
+      <End Role="analogs" EntitySet="analogs" />
+    </AssociationSet>
+    <AssociationSet Name="ComponentId" Association="Self.ComponentId">
+      <End Role="component" EntitySet="component" />
+      <End Role="analogs" EntitySet="analogs" />
+    </AssociationSet>
+    <AssociationSet Name="CtiticalityLevel" Association="Self.CtiticalityLevel">
+      <End Role="criticality_level" EntitySet="criticality_level" />
+      <End Role="component" EntitySet="component" />
+    </AssociationSet>
+    <AssociationSet Name="project_has_component" Association="Self.project_has_component">
+      <End Role="component" EntitySet="component" />
+      <End Role="project" EntitySet="project" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,5 @@
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\bin\Debug\Domain.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\bin\Debug\Domain.pdb
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\obj\Debug\Domain.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\obj\Debug\Domain.pdb

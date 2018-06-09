@@ -209,8 +209,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Component\ComponentDetailsMode.cs" />
-    <Compile Include="Models\Component\ComponentListMode.cs" />
+    <Compile Include="Models\ComponentDetails.cs" />
+    <Compile Include="Models\ComponentList.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Project.cs" />
@@ -278,6 +278,7 @@
     <Content Include="Views\Component\EditComponent.cshtml" />
     <Content Include="Views\Component\ShowComponentDetales.cshtml" />
     <Content Include="Views\Component\GenerateReport.cshtml" />
+    <Content Include="Views\Home\LoadConfiguration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -293,10 +294,21 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{a27083be-43e0-4e9e-a893-621f8e33e872}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{e82b913f-139e-42de-bad0-7a423b47c6ea}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MvcRazorToPdf\MvcRazorToPdf.csproj">
       <Project>{50e76c53-09c0-4a25-91a7-16c78f50bae2}</Project>
       <Name>MvcRazorToPdf</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

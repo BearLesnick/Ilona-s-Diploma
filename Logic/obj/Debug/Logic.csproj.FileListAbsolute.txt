@@ -1,0 +1,12 @@
+D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\obj\Debug\Logic.csproj.CoreCompileInputs.cache
+D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\bin\Debug\Logic.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\bin\Debug\Logic.pdb
+D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\bin\Debug\DAL.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\bin\Debug\EntityFramework.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\bin\Debug\DAL.pdb
+D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\bin\Debug\DAL.dll.config
+D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\bin\Debug\EntityFramework.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\obj\Debug\Logic.csproj.CopyComplete
+D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\obj\Debug\Logic.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\obj\Debug\Logic.pdb

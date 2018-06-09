@@ -1,10 +1,10 @@
-﻿using ProjectWithAuthorization.Models;
-using ProjectWithAuthorization.Models.Component;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Domain;
 
 namespace ProjectWithAuthorization.Controllers
 {
@@ -24,18 +24,19 @@ namespace ProjectWithAuthorization.Controllers
         [HttpGet]
         public ActionResult GenerateReport(String text)
         {
+
            return RedirectToAction("GenerateReport", "Component",text);//TODO connect to entityModel
         }
 
         public ActionResult Components()
         {
-            List<ComponentListMode> componentsList = new List<ComponentListMode>()
+            List<ComponentList> componentsList = new List<ComponentList>()
             {
-                new ComponentListMode() { Id = 0, Name = "First Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-warning"},
-                new ComponentListMode() { Id = 1, Name = "Second Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-danger"},
-                new ComponentListMode() { Id = 2, Name = "Third Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"},
-                new ComponentListMode() { Id = 3, Name = "Fourth Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"},
-                new ComponentListMode() { Id = 4, Name = "Fifth Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"}
+                new ComponentList() { Id = 0, Name = "First Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-warning"},
+                new ComponentList() { Id = 1, Name = "Second Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-danger"},
+                new ComponentList() { Id = 2, Name = "Third Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"},
+                new ComponentList() { Id = 3, Name = "Fourth Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"},
+                new ComponentList() { Id = 4, Name = "Fifth Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"}
             };
 
 

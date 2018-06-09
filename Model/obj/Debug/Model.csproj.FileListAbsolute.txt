@@ -1,0 +1,17 @@
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\bin\Debug\Model.dll.config
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\bin\Debug\Model.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\bin\Debug\Model.pdb
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\bin\Debug\EntityFramework.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\bin\Debug\Microsoft.Owin.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\bin\Debug\Owin.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\bin\Debug\EntityFramework.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\bin\Debug\Microsoft.Owin.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\obj\Debug\Model.csproj.CopyComplete
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\obj\Debug\Model.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Model\obj\Debug\Model.pdb

@@ -1,11 +1,11 @@
-﻿using ProjectWithAuthorization.Models.Component;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using iTextSharp.text;
 using MvcRazorToPdf;
+using ProjectWithAuthorization.Models;
 
 namespace ProjectWithAuthorization.Controllers
 {
@@ -18,32 +18,32 @@ namespace ProjectWithAuthorization.Controllers
         }
         public ActionResult EditComponent()
         {
-            ComponentDetailsMode component = new ComponentDetailsMode()
+            var component = new ComponentDetails()
             {
                 Id = 0,
                 ComponentName = "Some Component",
                 CriticalityLevel = "5",
-                Analogs = new List<ComponentListMode>()
+                Analogs = new List<ComponentList>()
                 {
-                new ComponentListMode() { Id = 0, Name = "First Component", CriticalityLevel="4", Vendor="rrrrr", CriticalityClass="table-warning"},
-                new ComponentListMode() { Id = 1, Name = "Second Component", CriticalityLevel="1", Vendor="rrrrr", CriticalityClass="table-danger"},
-                new ComponentListMode() { Id = 2, Name = "Third Component", CriticalityLevel="2", Vendor="rrrrr", CriticalityClass="table-light"}
+                new ComponentList() { Id = 0, Name = "First Component", CriticalityLevel="4", Vendor="rrrrr", CriticalityClass="table-warning"},
+                new ComponentList() { Id = 1, Name = "Second Component", CriticalityLevel="1", Vendor="rrrrr", CriticalityClass="table-danger"},
+                new ComponentList() { Id = 2, Name = "Third Component", CriticalityLevel="2", Vendor="rrrrr", CriticalityClass="table-light"}
                 }
             };
             return View(component);
         }
         public ActionResult ShowComponentDetales()
         {
-            ComponentDetailsMode component = new ComponentDetailsMode()
+            ComponentDetails component = new ComponentDetails()
             {
                 Id = 0,
                 ComponentName = "Ilona",
                 CriticalityLevel = "5",
-                Analogs = new List<ComponentListMode>()
+                Analogs = new List<ComponentList>()
                 {
-                new ComponentListMode() { Id = 0, Name = "Some Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-warning"},
-                new ComponentListMode() { Id = 1, Name = "Some Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-danger"},
-                new ComponentListMode() { Id = 2, Name = "Some Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"}
+                new ComponentList() { Id = 0, Name = "Some Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-warning"},
+                new ComponentList() { Id = 1, Name = "Some Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-danger"},
+                new ComponentList() { Id = 2, Name = "Some Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"}
                 }
             };
             return View(component);
@@ -52,14 +52,15 @@ namespace ProjectWithAuthorization.Controllers
         [HttpGet]
         public ActionResult GenerateReport(String text)//TODO Rebuild method and connect to repository
         {
-            List<ComponentListMode> componentsList = new List<ComponentListMode>()
+            List<ComponentList> componentsList = new List<ComponentList>()
             {
-                new ComponentListMode() { Id = 0, Name = "First Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-warning"},
-                new ComponentListMode() { Id = 1, Name = "Second Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-danger"},
-                new ComponentListMode() { Id = 2, Name = "Third Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"},
-                new ComponentListMode() { Id = 3, Name = "Fourth Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"},
-                new ComponentListMode() { Id = 4, Name = "Fifth Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"}
+                new ComponentList() { Id = 0, Name = "First Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-warning"},
+                new ComponentList() { Id = 1, Name = "Second Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-danger"},
+                new ComponentList() { Id = 2, Name = "Third Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"},
+                new ComponentList() { Id = 3, Name = "Fourth Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"},
+                new ComponentList() { Id = 4, Name = "Fifth Component", CriticalityLevel="5", Vendor="rrrrr", CriticalityClass="table-light"}
             };
+            
             return new PdfActionResult("../Component/GenerateReport", componentsList, (writer, document) =>
             {
                 document.SetPageSize(new Rectangle(500f, 500f, 90));

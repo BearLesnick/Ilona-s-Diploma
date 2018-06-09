@@ -6,9 +6,9 @@
 
     <div class="container">
         <div class="text-left mt-3 pb-3">
-            <button type="button" class="btn btn-success float-righ">Load configuration</button>
-            @Html.ActionLink("Generate report", "GenerateReport", new{ componentsList = Model, text = "text"}, new { @class = "btn btn-outline-success navbar-right"})
-            </div>
+            @Html.ActionLink("Load configuration", "LoadConfiguration", new { }, new { @class = "btn btn-outline-success navbar-right" })
+            @Html.ActionLink("Generate report", "GenerateReport", new {  }, new { @class = "btn btn-outline-success navbar-right" })
+        </div>
         <table class="table">
             <thead>
                 <tr>
