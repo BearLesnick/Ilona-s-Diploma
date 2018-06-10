@@ -1,27 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="diploma_bdModelStoreContainer" CdmEntityContainer="diploma_bdEntities">
-    <EntitySetMapping Name="analogs">
-      <EntityTypeMapping TypeName="diploma_bdModel.analogs">
-        <MappingFragment StoreEntitySet="analogs">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
-          <ScalarProperty Name="AnalogId" ColumnName="AnalogId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities1">
     <EntitySetMapping Name="component">
-      <EntityTypeMapping TypeName="diploma_bdModel.component">
+      <EntityTypeMapping TypeName="Model.component">
         <MappingFragment StoreEntitySet="component">
           <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
           <ScalarProperty Name="NameAndVersion" ColumnName="NameAndVersion" />
           <ScalarProperty Name="VendorLink" ColumnName="VendorLink" />
-          <ScalarProperty Name="CtiticalityLevel" ColumnName="CtiticalityLevel" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="criticality_level">
-      <EntityTypeMapping TypeName="diploma_bdModel.criticality_level">
+      <EntityTypeMapping TypeName="Model.criticality_level">
         <MappingFragment StoreEntitySet="criticality_level">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CriticalityLevel" ColumnName="CriticalityLevel" />
@@ -29,7 +19,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="project">
-      <EntityTypeMapping TypeName="diploma_bdModel.project">
+      <EntityTypeMapping TypeName="Model.project">
         <MappingFragment StoreEntitySet="project">
           <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
           <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
@@ -38,7 +28,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="project_has_component" TypeName="diploma_bdModel.project_has_component" StoreEntitySet="project_has_component">
+    <AssociationSetMapping Name="FK__component__Criti__5FB337D6" TypeName="Model.FK__component__Criti__5FB337D6" StoreEntitySet="component">
+      <EndProperty Name="criticality_level">
+        <ScalarProperty Name="Id" ColumnName="CriticalityLevel" />
+      </EndProperty>
+      <EndProperty Name="component">
+        <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="analogs" TypeName="Model.analogs" StoreEntitySet="analogs">
+      <EndProperty Name="component">
+        <ScalarProperty Name="ComponentId" ColumnName="AnalogId" />
+      </EndProperty>
+      <EndProperty Name="component1">
+        <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="project_has_component" TypeName="Model.project_has_component" StoreEntitySet="project_has_component">
       <EndProperty Name="component">
         <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
       </EndProperty>

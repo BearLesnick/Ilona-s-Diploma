@@ -4,15 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f3790525512149dea22b3e5e16f7b6b6" Name="Diagram1">
-        <EntityTypeShape EntityType="diploma_bdModel.analogs" Width="1.5" PointX="5.875" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="diploma_bdModel.component" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="diploma_bdModel.criticality_level" Width="1.5" PointX="0.5" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="diploma_bdModel.project" Width="1.5" PointX="5.875" PointY="3.875" IsExpanded="true" />
-        <AssociationConnector Association="diploma_bdModel.AnalogId" ManuallyRouted="false" />
-        <AssociationConnector Association="diploma_bdModel.ComponentId" ManuallyRouted="false" />
-        <AssociationConnector Association="diploma_bdModel.CtiticalityLevel" ManuallyRouted="false" />
-        <AssociationConnector Association="diploma_bdModel.project_has_component" ManuallyRouted="false" />
+      <Diagram DiagramId="44ab140e143c4af0b5568a962e210e38" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.component" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.criticality_level" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.project" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK__component__Criti__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.analogs" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.project_has_component" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

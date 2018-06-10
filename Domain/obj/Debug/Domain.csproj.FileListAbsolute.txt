@@ -3,3 +3,13 @@ D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\bin\Debug\Domain.pdb
 D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
 D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\obj\Debug\Domain.dll
 D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\obj\Debug\Domain.pdb
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\bin\Debug\ComponentDetails.cs
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\bin\Debug\ComponentList.cs
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\bin\Debug\Project.cs
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\bin\Debug\Domain.dll.config
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\bin\Debug\EntityFramework.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\bin\Debug\EntityFramework.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\Domain\obj\Debug\Domain.csproj.CopyComplete
