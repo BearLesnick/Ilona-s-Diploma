@@ -16,6 +16,11 @@ namespace DAL
 
         }
 
+        public component GetComponentById(int componentId)
+        {
+            return _dbContext.component.Find(componentId);
+        }
+
         public bool AddComponent(component cmp)
         {
             _dbContext.component.Add(cmp);

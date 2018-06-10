@@ -7,28 +7,62 @@
     <title>ComponentList</title>
 </head>
 <body>
-<div>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Component name</th>
-            <th>Criticality Level</th>
-            <th>Vendor link</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var component in @Model)
-        {
-            <tr class="@component.CriticalityClass @component.Id t-row">
-                <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component")</td>
-                <td>@component.CriticalityLevel</td>
-                <td>@component.Vendor</td>
-                <td><i>@Html.ActionLink("Edit data", "EditComponent","Component",new {}, new { @class = "text-secondary" })</i></td>
-            </tr>
-        }
-        </tbody>
-    </table>
-</div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Component name</th>
+                    <th>Criticality Level</th>
+                    <th>Vendor link</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var component in @Model)
+                {
+                    switch (component.CriticalityLevel)
+                    {
+                        case "very low":
+                        case "low":
+                            {
+                                <tr class=" table-light @component.Id t-row">
+                                    <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component" ,new { componentId = component.Id }, null)</td>
+                                    <td>@component.CriticalityLevel</td>
+                                    <td>@component.Vendor</td>
+                                    <td><i>@Html.ActionLink("Edit data", "EditComponent", "Component", new {componentId = component.Id }, new { @class = "text-secondary" })</i></td>
+                                </tr>
+                            }
+                            break;
+                        case "normal":
+                        case "high":
+                        {
+                            {
+                                <tr class=" table-warning @component.Id t-row">
+                                    <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component", new { componentId = component.Id }, null)</td>
+                                    <td>@component.CriticalityLevel</td>
+                                    <td>@component.Vendor</td>
+                                    <td><i>@Html.ActionLink("Edit data", "EditComponent", "Component", new { componentId = component.Id }, new { @class = "text-secondary" })</i></td>
+                                </tr>
+                                }
+                            }
+                            break;
+                        case "very high":
+                        {
+                            <tr class=" table-danger @component.Id t-row">
+                                <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component", new { componentId = component.Id }, null)</td>
+                                <td>@component.CriticalityLevel</td>
+                                <td>@component.Vendor</td>
+                                <td><i>@Html.ActionLink("Edit data", "EditComponent", "Component", new { componentId = component.Id }, new { @class = "text-secondary" })</i></td>
+                            </tr>
+                        }
+                            break;
+
+
+                    }
+
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

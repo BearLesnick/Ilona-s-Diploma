@@ -1,0 +1,22 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateNewProject</title>
+</head>
+<body>
+    <form>
+        <div class="form-group text-left">
+            <label for="vendorLink">Project name</label>
+            <input type="text" class="form-control mr-sm-2" id="projectName" value="">
+        </div>
+    </form>
+    <div class="container">
+        <div class="text-left mt-3 pb-3">
+            @Html.ActionLink("Load configuration", "LoadConfigurationAndCreateProject", "Project", new { projectName = "TODO" }, new { @class = "btn btn-outline-success navbar-right" })
+        </div>
+    </div>
+</body>
+</html>

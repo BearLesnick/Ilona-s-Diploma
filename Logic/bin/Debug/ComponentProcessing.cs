@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
@@ -19,24 +20,6 @@ namespace Logic
             addableComponent.CriticalityLevel = component.criticality_level.CriticalityLevel;
             addableComponent.Name = component.NameAndVersion;
             addableComponent.Vendor = component.VendorLink;
-            switch (addableComponent.CriticalityLevel)
-            {
-                case "5":
-                    addableComponent.CriticalityClass = "very high";
-                    break;
-                case "4":
-                    addableComponent.CriticalityClass = "high";
-                    break;
-                case "3":
-                    addableComponent.CriticalityClass = "medium";
-                    break;
-                case "2":
-                    addableComponent.CriticalityClass = "low";
-                    break;
-                case "1":
-                    addableComponent.CriticalityClass = "very low";
-                    break;
-            }
 
             return addableComponent;
         }
@@ -65,16 +48,18 @@ namespace Logic
                 addableproject.Id = project.ProjectId;
                 addableproject.CreationDate = (DateTime)project.CreationDate;
                 addableproject.ProjectName = project.ProjectName;
-                addableproject.CriticalityClass = "table-light";
+                addableproject.CriticalityClass = "normal";
+                addableproject.Components = new List<ComponentList>();
                 foreach (component component in project.component)
                 {
                     addableproject.Components.Add(FromDbComponentToViewComponent(component));
                     if (component.criticality_level.CriticalityLevel == "very high")
                     {
-                        addableproject.CriticalityClass = "table-warning";
+                        addableproject.CriticalityClass = "very high";
                     }
-                    viewProjects.Add(addableproject);
+                    
                 }
+                viewProjects.Add(addableproject);
             }
 
             return viewProjects;
@@ -88,18 +73,39 @@ namespace Logic
                 Id = project.ProjectId,
                 CreationDate = (DateTime) project.CreationDate,
                 ProjectName = project.ProjectName,
-                CriticalityClass = "table-light"
+                CriticalityClass = "normal",
+                Components = new List<ComponentList>()
+                
             };
             foreach (component component in project.component)
             {
                 if (component.criticality_level.CriticalityLevel == "very high")
                 {
                     addableproject.Components.Add(FromDbComponentToViewComponent(component));
-                    addableproject.CriticalityClass = "table-warning";
+                    addableproject.CriticalityClass = "very high";
                 }
             }
 
             return addableproject;
+        }
+
+        public ComponentDetails GetComponentDetails(int componentId)
+        {
+            var component = _componentRepository.GetComponentById(componentId);
+            var analogs = new List<ComponentList>();
+            foreach (component com in component.component2)
+            {
+                analogs.Add(FromDbComponentToViewComponent(com));
+            }
+
+            ComponentDetails details = new ComponentDetails()
+            {
+                ComponentName = component.NameAndVersion,
+                CriticalityLevel = component.criticality_level.CriticalityLevel,
+                Vendor = component.VendorLink,
+                Analogs = analogs
+            };
+            return details;
         }
     }
 }

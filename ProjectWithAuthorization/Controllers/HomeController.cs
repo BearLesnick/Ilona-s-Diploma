@@ -14,14 +14,7 @@ namespace ProjectWithAuthorization.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("ProjectList","Component");
-        }
-
-        [HttpGet]
-        public ActionResult GenerateReport(Project project)
-        {
-
-           return RedirectToAction("GenerateReport", "Component",project);//TODO connect to entityModel
+            return RedirectToAction("ProjectList","Project");
         }
 
         public ActionResult Components()

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Domain.Project>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ProjectList</title>
+</head>
+<body>
+    <div class="container">
+        <div class="text-left mt-3 pb-3">
+            <button type="button" class="btn btn-success float-righ" onclick="location.href='@Url.Action("CreateNewProject", "Project")'">Create new project</button>
+        </div>
+
+
+
+        @if (!@Model.Any())
+        {
+        <h2>no projects have been added yet</h2>
+        }
+        else
+        { <table class="table">
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Creation date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var project in @Model)
+                    {
+                        if (project.CriticalityClass == "very high")
+                        {
+                            <tr class="table-warning">
+                                <td>@Html.ActionLink(@project.ProjectName, "ProjectView", "Project", new { projectid = project.Id }, null)</td>
+                                <td>@project.CreationDate</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr class="table-light">
+                                <td>@Html.ActionLink(@project.ProjectName, "ProjectView", "Project", new { projectid = project.Id }, null)</td>
+                                <td>@project.CreationDate</td>
+                            </tr>
+                        }
+
+                    }
+                </tbody>
+
+            </table>
+        }
+
+
+    </div>
+</body>
+</html>

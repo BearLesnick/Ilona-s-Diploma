@@ -1,14 +1,29 @@
-﻿@model Domain.ComponentDetails
+﻿@using DAL
+@model Domain.ComponentDetails
 @{
-    
+
     Layout = "~/Views/Shared/_Layout.cshtml";
+    string criticality = "";
+    switch (Model.CriticalityLevel)
+    {
+        case "very low":
+
+        case "low":
+            criticality = "border-light";
+            break;
+        case "normal":
+        case "high": criticality = "border-warning";
+            break;
+        case "very high": criticality = "border-danger";
+            break;
+    }
 }
 
 
 <div class="container">
     <div class="text-left mt-3 pb-3">
         <h3  class="float-righ">@Model.ComponentName</h3>
-        <div>Criticality level: <span class="border border-danger px-4">@Model.CriticalityLevel</span>
+        <div>Criticality level: <span class="border @criticality px-4">@Model.CriticalityLevel</span>
     </div>
     </div>
     <h3>Analogs</h3>
@@ -22,15 +37,49 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var component in @Model.Analogs)
-            {
-                <tr class="@component.CriticalityClass @component.Id t-row">
-                    <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component")</td>
-                    <td>@component.CriticalityLevel</td>
-                    <td>@component.Vendor</td>
-                    <td><i>@Html.ActionLink("Edit data", "EditComponent", "Component", new { @class = "text-secondary" })</i></td>
-                </tr>
-            }
+             @foreach (var component in @Model.Analogs)
+                {
+                    switch (component.CriticalityLevel)
+                    {
+                        case "very low":
+                        case "low":
+                            {
+                                <tr class=" table-light @component.Id t-row">
+                                    <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component")</td>
+                                    <td>@component.CriticalityLevel</td>
+                                    <td>@component.Vendor</td>
+                                    <td><i>@Html.ActionLink("Edit data", "EditComponent", "Component", new {componentId = component.Id }, new { @class = "text-secondary" })</i></td>
+                                </tr>
+                            }
+                            break;
+                        case "normal":
+                        case "high":
+                        {
+                            {
+                                <tr class=" table-warning @component.Id t-row">
+                                    <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component")</td>
+                                    <td>@component.CriticalityLevel</td>
+                                    <td>@component.Vendor</td>
+                                    <td><i>@Html.ActionLink("Edit data", "EditComponent", "Component", new { componentId = component.Id }, new { @class = "text-secondary" })</i></td>
+                                </tr>
+                                }
+                            }
+                            break;
+                        case "very high":
+                        {
+                            <tr class=" table-danger @component.Id t-row">
+                                <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component")</td>
+                                <td>@component.CriticalityLevel</td>
+                                <td>@component.Vendor</td>
+                                <td><i>@Html.ActionLink("Edit data", "EditComponent", "Component", new { componentId = component.Id }, new { @class = "text-secondary" })</i></td>
+                            </tr>
+                        }
+                            break;
+
+
+                    }
+
+                }
         </tbody>
     </table>
 </div>
