@@ -22,3 +22,27 @@ D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\bin\Debug\DAL.pdb
 D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\bin\Debug\DAL.dll.config
 D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\bin\Debug\EntityFramework.xml
 D:\KrakenRepo\Diploma\Ilona's Diploma\Logic\bin\Debug\EntityFramework.SqlServer.xml
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\aspnet-ProjectWithAuthorization-20180528072355.mdf
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\aspnet-ProjectWithAuthorization-20180528072355_log.ldf
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\ComponentDetails.cs
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\ComponentList.cs
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\Project.cs
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\ComponentProcessing.cs
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\Logic.dll.config
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\Logic.dll
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\Logic.pdb
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\DAL.dll
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\Domain.dll
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\EntityFramework.dll
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\EntityFramework.SqlServer.dll
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\DAL.pdb
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\DAL.dll.config
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\Domain.pdb
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\Domain.dll.config
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\EntityFramework.xml
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\bin\Debug\EntityFramework.SqlServer.xml
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\obj\Debug\Logic.csproj.CoreCompileInputs.cache
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\obj\Debug\Logic.csproj.CopyComplete
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\obj\Debug\Logic.dll
+D:\KrakenRepo\Diploma\Ilona-s-Diploma\Logic\obj\Debug\Logic.pdb

@@ -29,9 +29,6 @@ namespace ProjectWithAuthorization.Controllers
             return View(component);
         }
 
-
-   
-
         public ActionResult ComponentList()
         {
             return View(_logic.GetAllComponents());

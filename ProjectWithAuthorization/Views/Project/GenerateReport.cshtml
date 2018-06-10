@@ -1,6 +1,7 @@
-﻿@model Domain.Project
+﻿@model Domain.ProjectDetailed
 @{
     Layout = null;
+
 }
 
 <!DOCTYPE html>
@@ -12,27 +13,62 @@
 </head>
 <body>
     <div>
-        <table class="table">
-            <thead>
+        <h2 style="alignment: center">Report about criticality of @Model.ProjectName</h2>
+        <table style="align-items: center; border: black 3px">
+            <thead style="border: black 3px">
                 <tr>
-                    <th>Component name</th>
-                    <th>Criticality Level</th>
-                    <th>Vendor link</th>
+                    <th style="border-bottom: black 2px">Component name</th>
+                    <th style="border-bottom: black 2px">Criticality Level</th>
+                    <th style="border-bottom: black 2px">Vendor link</th>
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="border: black 3px">
                 @foreach (var component in @Model.Components)
                 {
-                    <tr class="@component.CriticalityClass @component.Id t-row">
-                        <td>@component.Name</td>
-                        <td>@component.CriticalityLevel</td>
-                        <td>@component.Vendor</td>
-
-                    </tr>
+                    if (component.CriticalityLevel == "very high")
+                    {
+                        <tr style="color: brown">
+                            <td style="border-bottom: grey 1px">@component.ComponentName</td>
+                            <td style="border-bottom: grey 1px">@component.CriticalityLevel</td>
+                            <td style="border-bottom: grey 1px"><a href="@component.Vendor">@component.Vendor</a></td>
+                        </tr>
+                    }
                 }
             </tbody>
         </table>
+        <h3 style="alignment: center">You can replace the following elements with analogs </h3>
+        @foreach (var component in @Model.Components)
+        {
+            if (component.CriticalityLevel == "very high")
+            {<table>
+                    <thead style="border: black 3px">
+                    <tr>
+                        <th style="border-bottom: black 1px">Component name</th>
+                        <th style="border-bottom: black 1px">Analog name</th>
+                        <th style="border-bottom: black 1px">Criticality Level</th>
+                        <th style="border-bottom: black 1px">Vendor link</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody style="border: black 3px">
+                        @foreach (var analog in component.Analogs)
+                        {
+                            if (analog.CriticalityLevel != "very high")
+                            {
+                        <tr style="color: brown">
+                            <td style="border-bottom: grey 1px">@component.ComponentName</td>
+                            <td style="border-bottom: grey 1px">@analog.Name</td>
+                            <td style="border-bottom: grey 1px">@analog.CriticalityLevel</td>
+                            <td style="border-bottom: grey 1px"><a href="@analog.Vendor">@analog.Vendor</a></td>
+                        </tr>
+                            }
+                        }
+                    </tbody>
+                    <tr></tr>
+                </table>
+            }
+        }
     </div>
 </body>
 </html>
