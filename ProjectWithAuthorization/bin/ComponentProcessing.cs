@@ -88,10 +88,51 @@ namespace Logic
 
             return addableproject;
         }
+        public ProjectDetailed GetDetailedProjectById(int projectId)
+        {
+            var project = _componentRepository.GetProjectById(projectId);
+            ProjectDetailed addableproject = new ProjectDetailed()
+            {
+                Id = project.ProjectId,
+                CreationDate = (DateTime)project.CreationDate,
+                ProjectName = project.ProjectName,
+                CriticalityClass = "normal",
+                Components = new List<ComponentDetails>()
+
+            };
+            foreach (component component in project.component)
+            {
+                if (component.criticality_level.CriticalityLevel == "very high")
+                {
+                    addableproject.Components.Add(FromDbComponentToComponentDetailed(component));
+                    addableproject.CriticalityClass = "very high";
+                }
+            }
+
+            return addableproject;
+        }
+
 
         public ComponentDetails GetComponentDetails(int componentId)
         {
             var component = _componentRepository.GetComponentById(componentId);
+            var analogs = new List<ComponentList>();
+            foreach (component com in component.component2)
+            {
+                analogs.Add(FromDbComponentToViewComponent(com));
+            }
+
+            ComponentDetails details = new ComponentDetails()
+            {
+                ComponentName = component.NameAndVersion,
+                CriticalityLevel = component.criticality_level.CriticalityLevel,
+                Vendor = component.VendorLink,
+                Analogs = analogs
+            };
+            return details;
+        }
+        public ComponentDetails FromDbComponentToComponentDetailed(component component)
+        {
             var analogs = new List<ComponentList>();
             foreach (component com in component.component2)
             {

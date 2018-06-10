@@ -45,7 +45,7 @@
                         case "low":
                             {
                                 <tr class=" table-light @component.Id t-row">
-                                    <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component")</td>
+                                    <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component", new { componentId = component.Id },null)</td>
                                     <td>@component.CriticalityLevel</td>
                                     <td>@component.Vendor</td>
                                     <td><i>@Html.ActionLink("Edit data", "EditComponent", "Component", new {componentId = component.Id }, new { @class = "text-secondary" })</i></td>
@@ -57,7 +57,7 @@
                         {
                             {
                                 <tr class=" table-warning @component.Id t-row">
-                                    <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component")</td>
+                                    <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component",new { componentId = component.Id }, null)</td>
                                     <td>@component.CriticalityLevel</td>
                                     <td>@component.Vendor</td>
                                     <td><i>@Html.ActionLink("Edit data", "EditComponent", "Component", new { componentId = component.Id }, new { @class = "text-secondary" })</i></td>
@@ -68,7 +68,7 @@
                         case "very high":
                         {
                             <tr class=" table-danger @component.Id t-row">
-                                <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component")</td>
+                                <td>@Html.ActionLink(@component.Name, "ShowComponentDetales", "Component",new { componentId = component.Id }, null)</td>
                                 <td>@component.CriticalityLevel</td>
                                 <td>@component.Vendor</td>
                                 <td><i>@Html.ActionLink("Edit data", "EditComponent", "Component", new { componentId = component.Id }, new { @class = "text-secondary" })</i></td>
@@ -83,6 +83,3 @@
         </tbody>
     </table>
 </div>
-
-
-

@@ -47,16 +47,13 @@ namespace ProjectWithAuthorization.Controllers
         [HttpGet]
         public ActionResult GenerateReport(int projectId)//TODO Rebuild method and connect to repository
         {
-            var project = _logic.GetProjectById(projectId);
+            var project = _logic.GetDetailedProjectById(projectId);
 
             return new PdfActionResult("GenerateReport", project, (writer, document) =>
             {
                 document.SetPageSize(new Rectangle(500f, 500f, 90));
                 document.NewPage();
-            })
-            {
-                FileDownloadName = "Report.pdf"
-            };
+            });
         }
     }
 }
