@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Domain;
 using iTextSharp.text;
 using MvcRazorToPdf;
-using ProjectWithAuthorization.Models;
-
+using Logic;
 namespace ProjectWithAuthorization.Controllers
 {
     public class ComponentController : Controller
     {
+        ComponentProcessing _logic = new ComponentProcessing();
         // GET: Component
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("ComponentList","Component");
         }
-        public ActionResult EditComponent()
+        public ActionResult EditComponent(int componentId)//TODO
         {
             var component = new ComponentDetails()
             {
@@ -32,7 +33,7 @@ namespace ProjectWithAuthorization.Controllers
             };
             return View(component);
         }
-        public ActionResult ShowComponentDetales()
+        public ActionResult ShowComponentDetales()//TODO
         {
             ComponentDetails component = new ComponentDetails()
             {
@@ -47,6 +48,13 @@ namespace ProjectWithAuthorization.Controllers
                 }
             };
             return View(component);
+        }
+
+        [HttpGet]
+        public ActionResult ProjectView(int projectId)
+        {
+            
+            return View(_logic.GetProjectById(projectId));
         }
 
         [HttpGet]
@@ -69,6 +77,16 @@ namespace ProjectWithAuthorization.Controllers
             {
                 FileDownloadName = "Report.pdf"
             };
+        }
+
+        public ActionResult ComponentList()
+        {
+            return View(_logic.GetAllComponents());
+        }
+        public ActionResult ProjectList()
+        {
+            
+            return View(_logic.GetAllProjects());
         }
     }
 }

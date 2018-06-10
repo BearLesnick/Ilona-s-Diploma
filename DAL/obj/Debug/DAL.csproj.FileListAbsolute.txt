@@ -1,3 +1,5 @@
+D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\bin\Debug\aspnet-ProjectWithAuthorization-20180528072355.mdf
+D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\bin\Debug\aspnet-ProjectWithAuthorization-20180528072355_log.ldf
 D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\bin\Debug\DAL.dll.config
 D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\bin\Debug\DAL.dll
 D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\bin\Debug\DAL.pdb
@@ -5,6 +7,7 @@ D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\bin\Debug\EntityFramework.dll
 D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\bin\Debug\EntityFramework.SqlServer.dll
 D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\bin\Debug\EntityFramework.xml
 D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\KrakenRepo\Diploma\Ilona's Diploma\DAL\obj\Debug\DAL.dll

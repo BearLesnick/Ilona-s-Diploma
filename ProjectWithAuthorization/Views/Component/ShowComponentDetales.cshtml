@@ -1,4 +1,4 @@
-﻿@model ProjectWithAuthorization.Models.Component.ComponentDetailsMode
+﻿@model Domain.ComponentDetails
 @{
     
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,7 +8,7 @@
 <div class="container">
     <div class="text-left mt-3 pb-3">
         <h3  class="float-righ">@Model.ComponentName</h3>
-        <div>Criticality level: <span class="border border-danger px-4">@Model.CriticalityLevel</span></divpx-4>
+        <div>Criticality level: <span class="border border-danger px-4">@Model.CriticalityLevel</span>
     </div>
     </div>
     <h3>Analogs</h3>

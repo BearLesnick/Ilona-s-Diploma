@@ -4,42 +4,44 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="diploma_bdModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'D:\KRAKENREPO\DIPLOMA\ILONA'S DIPLOMA\DAL\ASPNET-PROJECTWITHAUTHORIZATION-20180528072355.MDF.dbo.analogs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="analogs">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ComponentId" />
+            <PropertyRef Name="AnalogId" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="ComponentId" Type="int" />
-          <Property Name="AnalogId" Type="varchar" MaxLength="45" />
+          <Property Name="ComponentId" Type="int" Nullable="false" />
+          <Property Name="AnalogId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="component">
           <Key>
             <PropertyRef Name="ComponentId" />
           </Key>
-          <Property Name="ComponentId" Type="int" Nullable="false" />
-          <Property Name="NameAndVersion" Type="varchar" MaxLength="100" />
-          <Property Name="VendorLink" Type="varchar" MaxLength="500" />
-          <Property Name="CtiticalityLevel" Type="int" />
+          <Property Name="ComponentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameAndVersion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="VendorLink" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CriticalityLevel" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="criticality_level">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="CriticalityLevel" Type="varchar" MaxLength="45" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CriticalityLevel" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
         <EntityType Name="project">
           <Key>
             <PropertyRef Name="ProjectId" />
           </Key>
-          <Property Name="ProjectId" Type="int" Nullable="false" />
-          <Property Name="ProjectName" Type="varchar" MaxLength="100" />
-          <Property Name="CreationDate" Type="datetime" Precision="0" />
+          <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="AuthorId" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'def.diploma_bd.project_has_component' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'D:\KRAKENREPO\DIPLOMA\ILONA'S DIPLOMA\DAL\ASPNET-PROJECTWITHAUTHORIZATION-20180528072355.MDF.dbo.project_has_component' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="project_has_component">
           <Key>
             <PropertyRef Name="ProjectId" />
@@ -48,20 +50,50 @@ warning 6002: The table/view 'def.diploma_bd.project_has_component' does not hav
           <Property Name="ProjectId" Type="int" Nullable="false" />
           <Property Name="ComponentId" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="AnalogId">
+        <Association Name="FK__analogs__AnalogI__7B5B524B">
           <End Role="component" Type="Self.component" Multiplicity="1" />
-          <End Role="analogs" Type="Self.analogs" Multiplicity="0..1" />
+          <End Role="analogs" Type="Self.analogs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="component">
               <PropertyRef Name="ComponentId" />
             </Principal>
             <Dependent Role="analogs">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="AnalogId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Component1">
-          <End Role="component" Type="Self.component" Multiplicity="1" />
+        <Association Name="FK__analogs__Compone__7A672E12">
+          <End Role="component" Type="Self.component" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="analogs" Type="Self.analogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="component">
+              <PropertyRef Name="ComponentId" />
+            </Principal>
+            <Dependent Role="analogs">
+              <PropertyRef Name="ComponentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__component__Criti__5FB337D6">
+          <End Role="criticality_level" Type="Self.criticality_level" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="component" Type="Self.component" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="criticality_level">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="component">
+              <PropertyRef Name="CriticalityLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__project_h__Compo__66603565">
+          <End Role="component" Type="Self.component" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="project_has_component" Type="Self.project_has_component" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="component">
@@ -72,32 +104,10 @@ warning 6002: The table/view 'def.diploma_bd.project_has_component' does not hav
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ComponentId">
-          <End Role="component" Type="Self.component" Multiplicity="1" />
-          <End Role="analogs" Type="Self.analogs" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="component">
-              <PropertyRef Name="ComponentId" />
-            </Principal>
-            <Dependent Role="analogs">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CtiticalityLevel">
-          <End Role="criticality_level" Type="Self.criticality_level" Multiplicity="0..1" />
-          <End Role="component" Type="Self.component" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="criticality_level">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="component">
-              <PropertyRef Name="CtiticalityLevel" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Project1">
-          <End Role="project" Type="Self.project" Multiplicity="1" />
+        <Association Name="FK__project_h__Proje__656C112C">
+          <End Role="project" Type="Self.project" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="project_has_component" Type="Self.project_has_component" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="project">
@@ -108,34 +118,39 @@ warning 6002: The table/view 'def.diploma_bd.project_has_component' does not hav
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="diploma_bdModelStoreContainer">
-          <EntitySet Name="analogs" EntityType="Self.analogs" Schema="diploma_bd" store:Type="Tables" />
-          <EntitySet Name="component" EntityType="Self.component" Schema="diploma_bd" store:Type="Tables" />
-          <EntitySet Name="criticality_level" EntityType="Self.criticality_level" Schema="diploma_bd" store:Type="Tables" />
-          <EntitySet Name="project" EntityType="Self.project" Schema="diploma_bd" store:Type="Tables" />
-          <EntitySet Name="project_has_component" EntityType="Self.project_has_component" store:Type="Tables" store:Schema="diploma_bd">
-            <DefiningQuery>SELECT
-`project_has_component`.`ProjectId`, 
-`project_has_component`.`ComponentId`
-FROM `project_has_component` AS `project_has_component`</DefiningQuery>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="component" EntityType="Self.component" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="criticality_level" EntityType="Self.criticality_level" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="project" EntityType="Self.project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="analogs" EntityType="Self.analogs" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [analogs].[ComponentId] AS [ComponentId], 
+    [analogs].[AnalogId] AS [AnalogId]
+    FROM [dbo].[analogs] AS [analogs]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="AnalogId" Association="Self.AnalogId">
+          <EntitySet Name="project_has_component" EntityType="Self.project_has_component" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [project_has_component].[ProjectId] AS [ProjectId], 
+    [project_has_component].[ComponentId] AS [ComponentId]
+    FROM [dbo].[project_has_component] AS [project_has_component]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__analogs__AnalogI__7B5B524B" Association="Self.FK__analogs__AnalogI__7B5B524B">
             <End Role="component" EntitySet="component" />
             <End Role="analogs" EntitySet="analogs" />
           </AssociationSet>
-          <AssociationSet Name="Component1" Association="Self.Component1">
-            <End Role="component" EntitySet="component" />
-            <End Role="project_has_component" EntitySet="project_has_component" />
-          </AssociationSet>
-          <AssociationSet Name="ComponentId" Association="Self.ComponentId">
+          <AssociationSet Name="FK__analogs__Compone__7A672E12" Association="Self.FK__analogs__Compone__7A672E12">
             <End Role="component" EntitySet="component" />
             <End Role="analogs" EntitySet="analogs" />
           </AssociationSet>
-          <AssociationSet Name="CtiticalityLevel" Association="Self.CtiticalityLevel">
+          <AssociationSet Name="FK__component__Criti__5FB337D6" Association="Self.FK__component__Criti__5FB337D6">
             <End Role="criticality_level" EntitySet="criticality_level" />
             <End Role="component" EntitySet="component" />
           </AssociationSet>
-          <AssociationSet Name="Project1" Association="Self.Project1">
+          <AssociationSet Name="FK__project_h__Compo__66603565" Association="Self.FK__project_h__Compo__66603565">
+            <End Role="component" EntitySet="component" />
+            <End Role="project_has_component" EntitySet="project_has_component" />
+          </AssociationSet>
+          <AssociationSet Name="FK__project_h__Proje__656C112C" Association="Self.FK__project_h__Proje__656C112C">
             <End Role="project" EntitySet="project" />
             <End Role="project_has_component" EntitySet="project_has_component" />
           </AssociationSet>
@@ -144,104 +159,62 @@ FROM `project_has_component` AS `project_has_component`</DefiningQuery>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="diploma_bdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="analogs">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="ComponentId" Type="Int32" />
-          <Property Name="AnalogId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="component" Relationship="Self.AnalogId" FromRole="analogs" ToRole="component" />
-          <NavigationProperty Name="component1" Relationship="Self.ComponentId" FromRole="analogs" ToRole="component" />
-        </EntityType>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="component">
           <Key>
             <PropertyRef Name="ComponentId" />
           </Key>
-          <Property Name="ComponentId" Type="Int32" Nullable="false" />
-          <Property Name="NameAndVersion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="VendorLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="CtiticalityLevel" Type="Int32" />
-          <NavigationProperty Name="analogs" Relationship="Self.AnalogId" FromRole="component" ToRole="analogs" />
-          <NavigationProperty Name="analogs1" Relationship="Self.ComponentId" FromRole="component" ToRole="analogs" />
-          <NavigationProperty Name="criticality_level" Relationship="Self.CtiticalityLevel" FromRole="component" ToRole="criticality_level" />
+          <Property Name="ComponentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameAndVersion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VendorLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="criticality_level" Relationship="Self.FK__component__Criti__5FB337D6" FromRole="component" ToRole="criticality_level" />
+          <NavigationProperty Name="component1" Relationship="Self.analogs" FromRole="component" ToRole="component1" />
+          <NavigationProperty Name="component2" Relationship="Self.analogs" FromRole="component1" ToRole="component" />
           <NavigationProperty Name="project" Relationship="Self.project_has_component" FromRole="component" ToRole="project" />
         </EntityType>
         <EntityType Name="criticality_level">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="CriticalityLevel" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="component" Relationship="Self.CtiticalityLevel" FromRole="criticality_level" ToRole="component" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CriticalityLevel" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="component" Relationship="Self.FK__component__Criti__5FB337D6" FromRole="criticality_level" ToRole="component" />
         </EntityType>
         <EntityType Name="project">
           <Key>
             <PropertyRef Name="ProjectId" />
           </Key>
-          <Property Name="ProjectId" Type="Int32" Nullable="false" />
-          <Property Name="ProjectName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CreationDate" Type="DateTime" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="AuthorId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="component" Relationship="Self.project_has_component" FromRole="project" ToRole="component" />
         </EntityType>
-        <Association Name="AnalogId">
-          <End Role="component" Type="Self.component" Multiplicity="1" />
-          <End Role="analogs" Type="Self.analogs" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="component">
-              <PropertyRef Name="ComponentId" />
-            </Principal>
-            <Dependent Role="analogs">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ComponentId">
-          <End Role="component" Type="Self.component" Multiplicity="1" />
-          <End Role="analogs" Type="Self.analogs" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="component">
-              <PropertyRef Name="ComponentId" />
-            </Principal>
-            <Dependent Role="analogs">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CtiticalityLevel">
-          <End Role="criticality_level" Type="Self.criticality_level" Multiplicity="0..1" />
+        <Association Name="FK__component__Criti__5FB337D6">
+          <End Role="criticality_level" Type="Self.criticality_level" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="component" Type="Self.component" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="criticality_level">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="component">
-              <PropertyRef Name="CtiticalityLevel" />
-            </Dependent>
-          </ReferentialConstraint>
+        </Association>
+        <Association Name="analogs">
+          <End Role="component" Type="Self.component" Multiplicity="*" />
+          <End Role="component1" Type="Self.component" Multiplicity="*" />
         </Association>
         <Association Name="project_has_component">
           <End Role="component" Type="Self.component" Multiplicity="*" />
           <End Role="project" Type="Self.project" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="diploma_bdEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="analogs" EntityType="Self.analogs" />
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="component" EntityType="Self.component" />
           <EntitySet Name="criticality_level" EntityType="Self.criticality_level" />
           <EntitySet Name="project" EntityType="Self.project" />
-          <AssociationSet Name="AnalogId" Association="Self.AnalogId">
-            <End Role="component" EntitySet="component" />
-            <End Role="analogs" EntitySet="analogs" />
-          </AssociationSet>
-          <AssociationSet Name="ComponentId" Association="Self.ComponentId">
-            <End Role="component" EntitySet="component" />
-            <End Role="analogs" EntitySet="analogs" />
-          </AssociationSet>
-          <AssociationSet Name="CtiticalityLevel" Association="Self.CtiticalityLevel">
+          <AssociationSet Name="FK__component__Criti__5FB337D6" Association="Self.FK__component__Criti__5FB337D6">
             <End Role="criticality_level" EntitySet="criticality_level" />
             <End Role="component" EntitySet="component" />
+          </AssociationSet>
+          <AssociationSet Name="analogs" Association="Self.analogs">
+            <End Role="component" EntitySet="component" />
+            <End Role="component1" EntitySet="component" />
           </AssociationSet>
           <AssociationSet Name="project_has_component" Association="Self.project_has_component">
             <End Role="component" EntitySet="component" />
@@ -253,28 +226,18 @@ FROM `project_has_component` AS `project_has_component`</DefiningQuery>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="diploma_bdModelStoreContainer" CdmEntityContainer="diploma_bdEntities">
-          <EntitySetMapping Name="analogs">
-            <EntityTypeMapping TypeName="diploma_bdModel.analogs">
-              <MappingFragment StoreEntitySet="analogs">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
-                <ScalarProperty Name="AnalogId" ColumnName="AnalogId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities1">
           <EntitySetMapping Name="component">
-            <EntityTypeMapping TypeName="diploma_bdModel.component">
+            <EntityTypeMapping TypeName="Model.component">
               <MappingFragment StoreEntitySet="component">
                 <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
                 <ScalarProperty Name="NameAndVersion" ColumnName="NameAndVersion" />
                 <ScalarProperty Name="VendorLink" ColumnName="VendorLink" />
-                <ScalarProperty Name="CtiticalityLevel" ColumnName="CtiticalityLevel" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="criticality_level">
-            <EntityTypeMapping TypeName="diploma_bdModel.criticality_level">
+            <EntityTypeMapping TypeName="Model.criticality_level">
               <MappingFragment StoreEntitySet="criticality_level">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CriticalityLevel" ColumnName="CriticalityLevel" />
@@ -282,7 +245,7 @@ FROM `project_has_component` AS `project_has_component`</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="project">
-            <EntityTypeMapping TypeName="diploma_bdModel.project">
+            <EntityTypeMapping TypeName="Model.project">
               <MappingFragment StoreEntitySet="project">
                 <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
                 <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
@@ -291,7 +254,23 @@ FROM `project_has_component` AS `project_has_component`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="project_has_component" TypeName="diploma_bdModel.project_has_component" StoreEntitySet="project_has_component">
+          <AssociationSetMapping Name="FK__component__Criti__5FB337D6" TypeName="Model.FK__component__Criti__5FB337D6" StoreEntitySet="component">
+            <EndProperty Name="criticality_level">
+              <ScalarProperty Name="Id" ColumnName="CriticalityLevel" />
+            </EndProperty>
+            <EndProperty Name="component">
+              <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="analogs" TypeName="Model.analogs" StoreEntitySet="analogs">
+            <EndProperty Name="component">
+              <ScalarProperty Name="ComponentId" ColumnName="AnalogId" />
+            </EndProperty>
+            <EndProperty Name="component1">
+              <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="project_has_component" TypeName="Model.project_has_component" StoreEntitySet="project_has_component">
             <EndProperty Name="component">
               <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
             </EndProperty>
@@ -314,8 +293,8 @@ FROM `project_has_component` AS `project_has_component`</DefiningQuery>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
